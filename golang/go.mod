@@ -1,6 +1,8 @@
 module github.com/Baytancha/geoservice_proto/golang
 
-go 1.22.9
+go 1.22.7
+
+toolchain go1.22.9
 
 require (
 	golang.org/x/net v0.29.0 // indirect
