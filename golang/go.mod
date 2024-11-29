@@ -1,4 +1,4 @@
-module github.com/Baytancha/geoservice-proto/golang
+module github.com/Baytancha/geoservice_proto/golang
 
 go 1.22.9
 
