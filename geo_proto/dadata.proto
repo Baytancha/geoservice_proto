@@ -1,0 +1,39 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = ".";
+
+package dadata_grpc;
+
+
+
+service GeoProvider {
+  rpc AddressSearch (SearchRequest) returns (Addresses) {}
+  rpc GeoCode (GeocodeRequest) returns (Addresses) {}
+} 
+
+
+message SearchRequest {
+  string query=1;
+ 
+}
+
+message GeocodeRequest {
+  string lat = 1;
+  string lng = 2;
+}
+
+
+message Address {
+  string city=1;
+	string street =2; 
+	string house=3; 
+	string lat=4; 
+	string lon=5; 
+}
+
+message Addresses {
+  repeated Address results = 1;
+}

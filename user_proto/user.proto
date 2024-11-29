@@ -1,0 +1,51 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = ".";
+
+package user;
+
+
+service UserService {
+  rpc GetUserByName (User) returns (User) {}
+  rpc GetUserById (User) returns (User) {}
+  rpc CreateUser (User) returns (User) {}
+  rpc UpdateUser (User) returns (User) {}
+  rpc DeleteUser (User) returns (User) {}
+  rpc Profile (User) returns (User) {}
+  rpc List (Filters) returns (Users) {}
+} 
+
+
+message User {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+}
+
+message Filters {
+  int64 page = 1;
+  int64 page_size = 2;
+  string sort = 3;
+}
+
+
+message Metadata { 
+  int64 current_page = 1;
+  int64 page_size = 2;
+  int64 first_page = 3;
+  int64 last_page = 4;
+  int64 total_records = 5;
+}
+
+message Users {
+  Metadata data = 1;
+  repeated User results = 2;
+}
+
+
+
+
